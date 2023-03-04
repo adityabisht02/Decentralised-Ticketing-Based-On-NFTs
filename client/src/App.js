@@ -1,7 +1,8 @@
 import React from "react";
-
+import User from "./User/User";
+import Admin from "./Organiser/Organiser";
 const App = () => {
-  return <div className="text-center font-extrabold">App</div>;
+  return <Admin />;
 };
 
 export default App;
