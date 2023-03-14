@@ -22,6 +22,8 @@ const Header = () => {
       </div>
 
       <div></div>
+
+      <div className="flex container justify-between px-24">NFTTickets</div>
     </header>
   );
 };

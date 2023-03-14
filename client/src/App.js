@@ -1,8 +1,9 @@
 import React from "react";
 import User from "./User/User";
-import Admin from "./Organiser/Organiser";
+import Organiser from "./Organiser/Organiser";
+
 const App = () => {
-  return <Admin />;
+  return <Organiser />;
 };
 
 export default App;

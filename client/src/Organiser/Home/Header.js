@@ -2,32 +2,25 @@ import React from "react";
 
 const Header = () => {
   return (
-    <header className="py-6 ">
-      <div className="container flex justify-between items-center mx-auto px-8 md:px-14 lg:px-24 w-full">
-        <div className="text-lg font-bold">NFTTickets</div>
-        <div className="hidden md:flex space-x-12 items-center">
-          <a href="#" className=" hover:text-red-bg-btn font-bold">
-            HOME
-          </a>
-          <a href="#" className=" hover:text-red-bg-btn font-bold">
-            INSTRUCTIONS
-          </a>
-          <a href="#work" className="hover:text-red-bg-btn font-bold">
-            CREATE EVENT
-          </a>
-          <a href="#clients" className="hover:text-red-bg-btn font-bold">
-            PAST EVENTS
-          </a>
-          <a href="#hire" className="">
-            <button class="px-6 py-2 bg-red-bg-btn font-bold text-white">
-              LOGIN
-            </button>
-          </a>
-        </div>
+    <div className="flex flex-wrap lg:ml-20 justify-between max-w-xl mt-0 md:my-35">
+      <h1 className="font-bold text-5xl md:text-6xl lg:text-7xl text-center md:text-left">
+        NFTTickets
+      </h1>
+      <p class="mt-3 section-paragraph text-lg">Not your regular tickets</p>
+      <div class="w-full flex justify-center md:justify-start">
+        <a href="https://github.com/adityabisht02" target="_blank">
+          <button class="px-8 py-4 bg-red-bg-btn hover:bg-red-500 text-white font-bold mt-12 flex items-center space-x-3">
+            <span>Why NFT Tickets ?</span>
+          </button>
+        </a>
       </div>
 
-      <div></div>
-    </header>
+      <img
+        src="https://images.unsplash.com/photo-1603969072881-b0fc7f3d77d7?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80s"
+        alt=""
+        class="w-1/2 mt-12 md:absolute md:mt-0 right-5 -z-1"
+      />
+    </div>
   );
 };
 
