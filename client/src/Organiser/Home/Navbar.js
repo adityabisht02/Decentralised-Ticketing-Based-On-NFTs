@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-
+import "./Navbar.css";
 function Navbar() {
   return (
     <div className="py-6">
@@ -13,9 +13,18 @@ function Navbar() {
           <Link to="/user" className=" hover:text-red-bg-btn font-bold">
             Instructions
           </Link>
-          <a href="/" className="hover:text-red-bg-btn font-bold">
-            Create Event
-          </a>
+          <div className="dropdown">
+            <a href="/" className="hover:text-red-bg-btn font-bold dropbtn">
+              Create Event
+            </a>
+            <div className="dropdown-content">
+              <Link to="/user">Link1</Link>
+              <a href="#">Link2</a>
+              <a href="#">Link3</a>
+              <a href="#">Link4</a>
+              <a href="#">Link5</a>
+            </div>
+          </div>
           <a href="#clients" className="hover:text-red-bg-btn font-bold">
             Past Events
           </a>
