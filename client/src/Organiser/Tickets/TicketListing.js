@@ -3,7 +3,7 @@ import Ticket from "./Ticket";
 
 function TicketListing() {
   return (
-    <div className="container grid grid-cols-3 items-center justify-center">
+    <div className="container grid grid-cols-3 justify-center items-center">
       <Ticket />
       <Ticket />
       <Ticket />
