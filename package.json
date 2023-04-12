@@ -12,5 +12,8 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.0",
     "hardhat": "^2.13.0"
+  },
+  "dependencies": {
+    "ethers": "^6.2.2"
   }
 }

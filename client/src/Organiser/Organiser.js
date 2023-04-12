@@ -8,7 +8,7 @@ const Organiser = () => {
   return (
     <div>
       <Navbar />
-      <TicketListing />
+      <Home />
     </div>
   );
 };
