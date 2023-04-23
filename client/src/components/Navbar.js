@@ -25,13 +25,16 @@ function Navbar() {
           <Link to="/" className=" hover:text-red-bg-btn font-bold">
             Home
           </Link>
-          <Link to="/user" className=" hover:text-red-bg-btn font-bold">
+          <Link to="/instructions" className=" hover:text-red-bg-btn font-bold">
             Instructions
           </Link>
           <div className="dropdown">
-            <a href="/" className="hover:text-red-bg-btn font-bold dropbtn">
-              Create Event
-            </a>
+            <Link
+              to="/ticketlisting"
+              className="hover:text-red-bg-btn font-bold dropbtn"
+            >
+              View Events
+            </Link>
             <div className="dropdown-content">
               <Link to="/user">Link1</Link>
               <a href="#">Link2</a>
@@ -40,9 +43,9 @@ function Navbar() {
               <a href="#">Link5</a>
             </div>
           </div>
-          <a href="#clients" className="hover:text-red-bg-btn font-bold">
-            Past Events
-          </a>
+          <Link to="/createevent" className="hover:text-red-bg-btn font-bold">
+            Organize
+          </Link>
           <a href="#hire" className="">
             <button class="px-6 py-2 bg-red-bg-btn hover:bg-red-500 font-bold text-white">
               Connect Wallet
