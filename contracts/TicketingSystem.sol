@@ -138,7 +138,7 @@ contract Ticketing1155 is ERC1155  {
   
          payable(organiser).transfer(msg.value);
 
-         //change currentsupply 
+         //change currentsupply
          token.currentSupply=currentSupply-amount;
 
     }
