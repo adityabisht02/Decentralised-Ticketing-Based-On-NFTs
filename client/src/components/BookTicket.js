@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "./Navbar";
 function BookTicket(props) {
-  const { eventName, eventDescription, eventImage } = props;
+  const { eventName, eventDescription, eventImage, tokenId } = props;
   return (
     <>
       <Navbar />
@@ -14,7 +14,7 @@ function BookTicket(props) {
                 className="block stroke-red-bg-btn  text-sm font-bold mb-2"
                 htmlFor="name"
               >
-                Event Name
+                {props.data.name}
               </label>
               <input type="text" id="name" value={eventName} disabled></input>
             </div>

@@ -1,14 +1,21 @@
 // require("dotenv").config();
 import axios from "axios";
 
+const key = "1";
+const secret = "2";
 const FormData = require("form-data");
 
 export const uploadJSONToIPFS = async (JSONBody) => {
   //api endpoint for uploading json to IPFS
   const url = `https://api.pinata.cloud/pinning/pinJSONToIPFS`;
+
+  const pinataData = {
+    pinataContent: JSONBody,
+  };
+
   //making axios POST request to Pinata ⬇️
   return axios
-    .post(url, JSONBody, {
+    .post(url, pinataData, {
       headers: {
         pinata_api_key: key,
         pinata_secret_api_key: secret,
@@ -88,4 +95,11 @@ export const uploadFileToIPFS = async (file) => {
         message: error.message,
       };
     });
+};
+
+export const GetIpfsUrlFromPinata = (pinataUrl) => {
+  var IPFSUrl = pinataUrl.split("/");
+  const lastIndex = IPFSUrl.length;
+  IPFSUrl = "https://ipfs.io/ipfs/" + IPFSUrl[lastIndex - 1];
+  return IPFSUrl;
 };

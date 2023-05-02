@@ -1,20 +1,25 @@
 // SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.6;
 
-import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol";
+import "@openzeppelin/contracts/token/ERC1155/ERC1155.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "./MyERC1155Receiver.sol";
 
-contract Ticketing1155 is ERC1155  {
+contract Ticketing1155 is ERC1155,MyERC1155Receiver  {
     address payable platformOwner;
      using Counters for Counters.Counter;
 
      //token id counter
     Counters.Counter private tokenIdCounter;    
-    constructor() ERC1155("") {
+    constructor () ERC1155("") {
         platformOwner=payable(msg.sender);
     }
+
+
+   
     function setURI(string memory uri) public onlyOwner{
         _setURI(uri);
     }
@@ -40,6 +45,7 @@ contract Ticketing1155 is ERC1155  {
         address organiser;
         address owner;
         bool isActive;
+        string tokenUri;
     }
      mapping(uint =>Tickettoken) idToTicket;
 
@@ -64,14 +70,13 @@ contract Ticketing1155 is ERC1155  {
         uint currentTokenId=tokenIdCounter.current();
         //safemint the token to organiser with token id of ticket
         _mint(msg.sender, currentTokenId, amount, "");
-        //associate tokenid to tokenURI
-        _setURI(uri);
+      
 
         //add the ticket token to the hashmap -> amount is the maxsupply
-        idToTicket[currentTokenId]=Tickettoken(currentTokenId,price,amount,amount,payable(msg.sender),payable(address(this)),true);
+        idToTicket[currentTokenId]=Tickettoken(currentTokenId,price,amount,amount,payable(msg.sender),payable(address(this)),true,uri);
 
         //transfer ownership of all tokens(amount) from organiser to contract so its easy to transfer it to user later (without approval)
-        // _safeTransferFrom(msg.sender, address(this), currentTokenId, amount, "");
+        _safeTransferFrom(msg.sender, address(this), currentTokenId, amount, "");
 
             payable(platformOwner).transfer(msg.value);
 
@@ -114,6 +119,7 @@ contract Ticketing1155 is ERC1155  {
        //traverse again and get the tickets
        for(uint i=1;i<=totalTicketCount;i++){
            Tickettoken memory currentToken=idToTicket[i];
+
            tickets[index]=currentToken;
            index++;
        }

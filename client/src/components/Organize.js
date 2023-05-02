@@ -50,8 +50,9 @@ function Organize() {
       maxTickets: maxTickets,
       image: fileURL,
     };
+
     try {
-      const response = uploadJSONToIPFS(metadatajson);
+      const response = await uploadJSONToIPFS(metadatajson);
       //if success return the metadata URI
       if (response.success) {
         console.log("Uploaded metadata to IPFS");
@@ -69,23 +70,24 @@ function Organize() {
     try {
       const { price, maxTickets } = formParams;
       const metadataURI = await uploadMetadataToIPFS();
-
       //create contract object
       const contract = new ethers.Contract(
         TicketingSystem.address,
         TicketingSystem.ticketingjson.abi, //the abi
         signer
       );
+      console.log(contract);
       const parsedPrice = ethers.utils.parseUnits(price, "ether");
       let listPrice = await contract.eventCreationPrice();
       listPrice = listPrice.toString();
-      console.log(listPrice);
       let transaction = await contract.createEventToken(
         metadataURI,
         parsedPrice,
         maxTickets,
         { value: listPrice }
       );
+      console.log(transaction);
+
       await transaction.wait();
       alert("Event created!!");
       // updateFormParams({
