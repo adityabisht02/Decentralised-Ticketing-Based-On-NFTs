@@ -46,11 +46,11 @@ function Navbar() {
           <Link to="/createevent" className="hover:text-red-bg-btn font-bold">
             Organize
           </Link>
-          <a href="#hire" className="">
-            <button class="px-6 py-2 bg-red-bg-btn hover:bg-red-500 font-bold text-white">
-              Connect Wallet
+          <Link to="/viewusertickets" className="">
+            <button className="px-6 py-2 bg-red-bg-btn hover:bg-red-500 font-bold text-white">
+              My gallery
             </button>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

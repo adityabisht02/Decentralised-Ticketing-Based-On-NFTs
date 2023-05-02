@@ -4,7 +4,8 @@ coverage
 coverage.json
 typechain
 typechain-types
-
+hardhat.config.js
+pinata.js
 # Hardhat files
 cache
 artifacts
